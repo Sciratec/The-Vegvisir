@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Shoadn API{% endblock %}}
+
+{% block content %}
+
+<form action="/urlscan" method="POST">
+
+    <div class="form-group">
+      <label>Scan URL</label>
+      <input type="text" class="form-control" id="scan" name="scan">
+    </div>
+
+    <div class="form-group">
+        <select name="" id=""></select>
+      <label>Time Search</label>
+      <input type="email" class="form-control" id="search" name="search">
+    </div>
+
+    <button type="submit" class="btn btn-primary">submit</button>
+
+  </form>
+
+<!-- <label>Scan URL</label>
+<form action="/urlscan" method="POST">
+    <input type="text" name="urlsearch">
+    <input class="btn btn-primary" type=""submit" value="submit">
+</form> -->
+{% endblock content %}

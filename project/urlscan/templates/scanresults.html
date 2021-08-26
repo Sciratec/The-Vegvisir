@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}Scan URL{% endblock %}}
+
+{% block content %}
+
+    {% if blacklistCheck %}
+    <b>{{ blacklistCheck }}</b>  
+    {% endif %}
+
+    {% if noIP %}
+    <b>{{noIP}}</b>
+    {% endif %}
+
+    {% if clean %}
+    <table style="width:100%">
+        <tr>
+            <th>URL</th>
+            <th>Phish?</th>
+        </tr>
+        <tr>
+            <td>{{ url }}</td>
+            <td>{{ clean }}</td>
+        </tr>
+    </table>
+    {% endif %}
+
+    {% if phish %}
+    <table style="width: 100%">
+        <tr>
+            <th>URL</th>
+            <th>Phish?</th>
+            <th>IP</th>
+            <th>ASN</th>
+
+        </tr>
+        <tr>
+            <td>{{ url }}</td>
+            <td>{{ phish }}</td>
+            <td>{{ ip }}</td>
+            <td>{{ asn }}</td>
+        </tr>
+    </table>
+    {% endif %}
+
+{% endblock content %}

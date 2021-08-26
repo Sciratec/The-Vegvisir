@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Shoadn API{% endblock %}}
+
+{% block content %}
+<form action="/shodan" method="POST">
+    <input type="text" name="ip">
+    <input class="btn btn-primary" type="submit" value="submit">
+</form>
+
+
+{% endblock content %}
