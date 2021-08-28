@@ -5,25 +5,31 @@
 {% block content %}
 
 <form action="/urlscan" method="POST">
-
-    <div class="form-group">
-      <label>Scan URL</label>
-      <input type="text" class="form-control" id="scan" name="scan">
+  <label>Scan URL</label>
+  <input type="text" class="form-control" id="scan" name="scan">
+  <!-- Button trigger modal -->
+  <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Submit
+  </button>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Please Wait...</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Scan may take up to a minute to scan. Please be patient..
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ok</button>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <div class="form-group">
-        <select name="" id=""></select>
-      <label>Time Search</label>
-      <input type="email" class="form-control" id="search" name="search">
-    </div>
-
-    <button type="submit" class="btn btn-primary">submit</button>
+  
 
   </form>
-
-<!-- <label>Scan URL</label>
-<form action="/urlscan" method="POST">
-    <input type="text" name="urlsearch">
-    <input class="btn btn-primary" type=""submit" value="submit">
-</form> -->
 {% endblock content %}

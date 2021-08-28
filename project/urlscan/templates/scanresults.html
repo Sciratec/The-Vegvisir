@@ -13,7 +13,7 @@
     {% endif %}
 
     {% if clean %}
-    <table style="width:100%">
+    <table>
         <tr>
             <th>URL</th>
             <th>Phish?</th>
@@ -23,10 +23,11 @@
             <td>{{ clean }}</td>
         </tr>
     </table>
+    <img src="{{ img }}" alt="Placeholder">
     {% endif %}
 
     {% if phish %}
-    <table style="width: 100%">
+    <table>
         <tr>
             <th>URL</th>
             <th>Phish?</th>
@@ -41,6 +42,7 @@
             <td>{{ asn }}</td>
         </tr>
     </table>
+    <img src="{{ img }}" alt="Placeholder">
     {% endif %}
 
 {% endblock content %}
