@@ -3,10 +3,28 @@
 {% block title %}Shoadn API{% endblock %}}
 
 {% block content %}
+<form action="/shodan" method="POST">
+    <label>Enter IP to Scan</label>
+    <input type="text" name="ip">
+    <input class="btn btn-primary" type="submit" value="submit">
+</form>
+{% if error %}
+    <p><b>{{ error }}</b></p>
+{% else %}
 <h1>Results for <b>{{ ip }}</b></h1>
 <br>
-<h4><b>Organization: </b>{{ org }}</h4>
-<h4><b>ASN: </b>{{ asn }}</h4>
-<h4><b>ISP: </b>{{ isp }}</h4>
-<h4><b>Country: </b>{{ country }}</h4>
+{% for who in whoisRes %}
+    <p><b>{{ who }}</b></p>   
+{% endfor %}
+<p><b>Organization: </b>{{ org }}</p>
+<p><b>ASN: </b>{{ asn }}</p>
+<p><b>ISP: </b>{{ isp }}</p>
+<p><b>Country: </b>{{ country }}</p>
+{% if ports %}
+    <p><b>Ports Open:</b></p>
+    {% for port in ports %}
+        <ul>{{ port }}</ul>
+    {% endfor %}
+{% endif %}
+{% endif %}
 {% endblock content %}

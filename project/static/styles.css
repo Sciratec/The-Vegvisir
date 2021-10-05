@@ -1,10 +1,30 @@
+body{
+    background: url(../static/vegvisir.jpeg);
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: black;
+}
+p, b, ul, label, h1, table, tr, td, th{
+    color: white;
+}
+
+div{
+    color: white;
+    font-family: 'IM Fell DW Pica SC', serif;
+}
 img{
     display: block;
-    width: 400px;
+    width: 600px;
     height: 400px;
 }
 
 table, th, td{
-    border: 1px solid black;
+    border: 1px solid white;
     width: auto;
+}
+
+.modal-body,.modal-title{
+    color: black;
 }

@@ -3,6 +3,32 @@
 {% block title %}Scan URL{% endblock %}}
 
 {% block content %}
+<form action="/urlscan" method="POST">
+    <label>Scan URL</label>
+    <input type="text" name="scan">
+    <!-- Button trigger modal -->
+    <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Submit
+    </button>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Please Wait...</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            Scan may take up to a minute to scan. Please be patient..
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ok</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+ </form>
 
     {% if blacklistCheck %}
     <b>{{ blacklistCheck }}</b>  
@@ -32,7 +58,7 @@
             <th>URL</th>
             <th>Phish?</th>
             <th>IP</th>
-            <th>ASN</th>
+            <th>Host</th>
 
         </tr>
         <tr>
@@ -43,6 +69,22 @@
         </tr>
     </table>
     <img src="{{ img }}" alt="Placeholder">
+    <table>
+        <tr>
+            <th>URL</th>
+            <th>IP</th>
+            <th>Host</th>
+        </tr>
+    {% for x in hashList %}
+    {% for y in x['results'] %}
+        <tr>
+            <td>{{ y['task']['url'] }}</td>
+            <td>{{ y['page']['ip'] }}</td>
+            <td>{{ y['page']['asnname'] }}</td>
+        </tr>
+    {% endfor %}
+    {% endfor %}
+    </table>
     {% endif %}
 
 {% endblock content %}

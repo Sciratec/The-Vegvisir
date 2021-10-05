@@ -43,7 +43,12 @@ def urlscan():
                     asn = apiLoads['page']['asnname']
                     img = apiLoads['task']['screenshotURL']
                     if "phishing" in verdicts['overall']['tags'] or "phishing" in verdicts['urlscan']['tags'] or "phishing" in verdicts['community']['tags']:
-                        return render_template('scanresults.html', url=url, ip=ip, asn=asn,phish=phish, img=img)
+                        hashes = apiLoads['lists']['hashes']
+                        hashList = []
+                        for ha in hashes[:3]: #Gets 3 IOC hashes and searches for more like phishing content in a 3 day time period
+                            hashIOCS = requests.get(f"https://urlscan.io/api/v1/search/?q=(hash:{ha}%20AND%20date:%3Enow-3d)")
+                            hashList.append(json.loads(hashIOCS.text))
+                        return render_template('scanresults.html', url=url, ip=ip, asn=asn,phish=phish, img=img, hashList=hashList)
                     else:
                         clean = "No"
                         return render_template('scanresults.html', clean=clean, url=url, img=img)
