@@ -1,5 +1,5 @@
 from os import error
-from flask import Flask, render_template, Blueprint, request, redirect
+from flask import Flask, render_template, Blueprint, request, redirect, flash
 from shodan import Shodan
 import subprocess, re
 from project.static.whois import whois
@@ -19,8 +19,8 @@ def shodan():
         try:
             ipInfo = api.host(ip)
         except:
-            error = "Something went wrong"
-            return render_template('shodanresults.html',error=error)
+            error = True
+            return render_template('shodanresults.html', error=error)
 
         asn = ipInfo['asn']
         country = ipInfo['country_name']

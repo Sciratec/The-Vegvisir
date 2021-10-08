@@ -39,7 +39,7 @@
     {% endif %}
 
     {% if clean %}
-    <table>
+    <table class="clean-table">
         <tr>
             <th>URL</th>
             <th>Phish?</th>
@@ -49,11 +49,11 @@
             <td>{{ clean }}</td>
         </tr>
     </table>
-    <img src="{{ img }}" alt="Placeholder">
+    <img class="clean-img" src="{{ img }}" alt="Placeholder">
     {% endif %}
 
     {% if phish %}
-    <table>
+    <table class="phish-table-initial">
         <tr>
             <th>URL</th>
             <th>Phish?</th>
@@ -68,8 +68,8 @@
             <td>{{ asn }}</td>
         </tr>
     </table>
-    <img src="{{ img }}" alt="Placeholder">
-    <table>
+    <img class="phish-img" src="{{ img }}" alt="Placeholder">
+    <table class="phish-table-associated">
         <tr>
             <th>URL</th>
             <th>IP</th>

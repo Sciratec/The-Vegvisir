@@ -11,11 +11,41 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica+SC&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica+SC&display=swap" rel="stylesheet">
 <title>{% block title %}{{ settings.SETTING }}{% endblock %}</title>
 </head>
 <body>
-  <ul class="nav nav-tabs">
+
+  <header class="header">
+    <a class="home" href="{{url_for('index')}}"><h1 class="banner-text">The Vegvisir</h1></a>
+    <img class="banner-img" src="../static/vegvisir.jpg">
+  </header>
+
+  <nav>
+    <ul class="nav justify-content-center">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="{{ url_for('shodan.shodan') }}">Shodan</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="">Whois</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('urlscan.urlscan') }}">URL Scan</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('writeups.writeups')}}">CTF Wrteups</a>
+      </li>
+    </ul>
+  </nav>
+
+  <footer class="footer">
+    The Vegvisir - That Which Shows the Way
+  </footer>
+
+
+
+
+  <!-- <ul class="nav nav-tabs">
     <li class="nav-item">
       <a class="nav-link active" aria-current="page" href="{{url_for('index')}}">Home</a>
     </li>
@@ -27,7 +57,7 @@
       </ul>
     </li>
     <a class="nav-link" aria-current="page" href="https://github.com/Sciratec/TryHackMe">CTF Writeups</a>
-  </ul>
+  </ul> -->
 
 
 {% block content %}
