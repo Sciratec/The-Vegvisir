@@ -53,6 +53,23 @@
     font-family: 'IM Fell DW Pica SC', serif;
 }
 
+.shodan-label{
+    color: RGB(214, 255, 250);
+    font-family: 'IM Fell DW Pica SC', serif;
+}
+
+.shodan-error{
+    color: RGB(214, 255, 250);
+    
+}
+
+.shodan-results{
+    color: RGB(214, 255, 250);
+    text-align: center;
+    
+    
+}
+
 body{
     background-color: black;
 }

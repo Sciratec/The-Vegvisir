@@ -4,44 +4,15 @@
 
 {% block content %}
 <form action="/shodan" method="POST">
-    <label>Enter IP to Scan</label>
+    <label class="shodan-label">Enter IP to Scan</label>
     <input type="text" name="ip">
     <input class="btn btn-primary" type="submit" value="submit">
 </form>
 
 {% if error %}
-
-    <div class="modal" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Modal title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>Modal body text goes here.</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
-        </div>
-    </div>
-  
-
-
-
-
-
-
-
-
-
-
-
-
+<h1 class="shodan-error">Error</h1>
 {% else %}
+<section class="shodan-results">
 <h1>Results for <b>{{ ip }}</b></h1>
 <br>
 {% for who in whoisRes %}
@@ -58,4 +29,5 @@
     {% endfor %}
 {% endif %}
 {% endif %}
+</section>
 {% endblock content %}
