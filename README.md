@@ -1,2 +1,4 @@
-# OSINT-Multitool
- A side project using Python and Flask to create a web application to utilize multiple OSINT services
+# The Vegvisir
+Flask and python application to utilize various open sources for threat intelligence.
+
+![Home Exaple](Vegvisir-home.png)
